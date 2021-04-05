@@ -1,0 +1,8 @@
+<view >
+  <view wx:for="{{data}}" class="card-wrap">
+    <image src="{{item.activity_rules}}"/>
+    <view><h3>{{item.activity_name}}</h3></view>
+    <text class="text-wrap">活动时间：{{item.startTime}}至{{item.endTime}}</text>
+    <button bindtap="joinActivity" data-num="{{item.aid}}">参与活动</button>
+  </view>
+</view>

@@ -1,0 +1,52 @@
+<view class="all_wrap">
+<view class="loginBox">
+   <view style='width:70%;'>
+    <view style='width:100%;height:38px;margin-bottom:20rpx;font-size:35rpx;font-weight:600;display:flex;justify-content:center'>
+    注册用户
+    </view>
+
+    <view style='width:100%;height:38px;display:inline-block;background:#fff;margin-bottom:40rpx;border-bottom:1px solid gray;'>
+     <view style='width:15%;display:inline-block;height:100%;'>
+       <image src='/assets/imgs/username.png' style='display:inline;' mode="aspectFit" class="image-wrap"></image>
+    </view>
+     <input style='width:80%;display:inline-block;height:100%;margin-left:20rpx' placeholder-style='font-size:12px;' placeholder='请输入用户名' bindinput="usernameChange"></input>
+    </view>
+
+    <view style='width:100%;height:38px;display:inline-block;background:#fff;margin-top:-5px;border-bottom:1px solid gray;margin-bottom:40rpx'>
+     <view style='width:15%;display:inline-block;height:100%;'>
+       <image src='/assets/imgs/password.png' style='display:inline' mode="aspectFit" class="image-wrap"></image>
+    </view>
+     <input style='width:80%;display:inline-block;height:100%;margin-left:20rpx' placeholder-style='font-size:12px;' placeholder='请输入密码' password bindinput="passwordChange"></input>     
+    </view>
+
+    <view style='width:100%;height:38px;display:inline-block;background:#fff;margin-top:-5px;border-bottom:1px solid gray;margin-bottom:40rpx'>
+     <view style='width:15%;display:inline-block;height:100%;'>
+       <image src='/assets/imgs/password.png' style='display:inline' mode="aspectFit" class="image-wrap"></image>
+    </view>
+     <input style='width:80%;display:inline-block;height:100%;margin-left:20rpx' placeholder-style='font-size:12px;' placeholder='请确认密码' password bindinput="confirmPasswordChange"></input>     
+    </view>
+
+    <view style='width:100%;height:38px;background:#fff;margin-top:-5px;display:flex;margin-bottom:40rpx'>
+      <button class="avatar-wrap" bindtap="uploadAvatar">上传头像</button>  
+    </view>
+
+    <view style='width:100%;background:#fff;margin-top:-5px;display:flex;margin-bottom:40rpx' wx:if="{{avatar}}">
+      <view class="avatar-image-wrap">
+        <image src="{{avatar}}" ></image>
+        <view>{{pictureName}}</view>
+      </view>
+    </view>
+
+
+    <view style='width:100%;height:38px;background:#fff;margin-top:-5px;display:flex;margin-bottom:40rpx'>
+    <button class="button-wrap" style="background-color:#2782D7;color:white" bindtap="regUser">确定</button>  
+    <button class="button-wrap">重置</button>  
+    </view>
+
+    <view style='width:100%;height:18px;background:#fff;margin-top:-5px;display:flex' class="login-wrap">
+      已有账号？<text bindtap="toLogin">立即登录>></text>
+    </view>
+
+   </view> 
+ </view>
+ </view>

@@ -1,0 +1,65 @@
+<!-- 搜索框 -->
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="开始搜索新闻标题" bindinput="bindKeyInput"/>
+    <view class="search-button">
+      <button class="mini-btn" size="mini" bindtap="searchNews">搜</button>
+    </view>
+  </view>
+</view>
+<!-- 悬浮按钮 -->
+<view class="actionBar"bindtap="menuShow">
+  <image src="/assets/imgs/add_white.png"class="add_image"/>
+</view>
+<!-- 轮播图 -->
+<view class="recommend" >
+  <view class="swiper-container">
+    <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <swiper-item >
+          <image src="{{item}}" class="img"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="slider-title">
+        <view>43242</view>
+    </view>
+    <view class="dots">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}"></view>
+      </block>
+    </view>
+  </view>
+</view>
+<!-- 产品展示 -->
+<view class="product_list_right">
+  <view id="product_list_right_body">
+    <ul>
+      <li class="li" wx:for="{{news}}" wx:for-index="index" wx:key="key">
+        <image src="{{item.news_image}}"class="product_list_image"/>
+        <view class="product_right">
+          <p>{{item.news_title}}</p><text>\n</text>
+          <p class="product_info_div">{{item.news_intro}}<span class="more" bindtap="toMore" data-num="{{item.nid}}">更多>></span></p>
+        </view>
+        <view class="product_bottom">
+          <view class="bottom_item">
+            <image src="/assets/imgs/good.png" bindtap="addPraise" data-num="{{item}}" data-index="{{index}}" wx:if="{{personalPraise[index]===0}}"></image>
+            <image src="/assets/imgs/good_select.png" wx:else></image>
+            <view>{{arrPraise[index]}}</view>
+          </view>
+          <!-- 分享 -->
+          <view class="bottom_item">
+            <button>
+              <image src="/assets/imgs/comment.png" bindtap="addComment" data-num="{{item.nid}}"></image>
+              <view>{{arrComment[index]}}</view>
+            </button>
+          </view>
+          <view class="bottom_item">
+            <image src="/assets/imgs/share.png"></image>
+            <view>{{item.news_share}}</view>
+          </view>
+        </view>
+      </li>
+    </ul>
+  </view>
+</view>

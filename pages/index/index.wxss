@@ -1,0 +1,239 @@
+.header {
+  margin: 90rpx 0 90rpx 50rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+ } 
+ .header image {
+  width: 200rpx;
+  height: 200rpx;
+ }
+ .content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+ }
+ .content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+ }
+.swiper-container{
+  position: relative;
+}
+.swiper-container .swiper{
+  height: 400rpx;
+}
+.swiper-container .swiper .img{
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .dots{
+  position: absolute;
+  bottom: 60rpx;
+  display: flex;
+  right: 40%;
+  justify-content: center;
+}
+.swiper-container .dots .dot{
+  margin: 0 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  background: #fff;
+  border-radius: 50%;
+  transition: all .6s;
+  font: 300 18rpx/28rpx "microsoft yahei";
+  text-align: center;
+}
+.swiper-container .dots .dot.active{
+  background: #2782D7;
+  color:#fff;
+}
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+.page-section-spacing{
+  box-sizing: border-box;
+  padding: 0 80rpx;
+}
+.weui-cell{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.add_image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.weui-input{
+  width: 80%;
+  border: 1px solid #d0d0d0;
+  font-size: 25rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+}
+.search-button{
+  font-size: 34rpx;
+}
+.slider-title{
+  background-color: rgba(15, 15, 15, 0.6);
+  color: white;
+  position: absolute;
+  text-align: center;
+  padding: 6rpx;
+  width: 100%;
+  bottom: 0px;
+}
+.actionBar{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  background: #2980B9;
+  color: white;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  flex-direction: row;
+  font-size: 34rpx;
+  font-weight: 600;
+  right: 0;
+  margin-bottom: 30rpx;
+  margin-right: 30rpx;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 1px 1px 1px #2980B9;
+}
+.product_menu{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 170rpx;
+  margin-right: 15rpx;
+  width: 150rpx;
+  height: auto;
+  border: 1px solid #dddddd;
+  border-radius: 10rpx;
+   z-index: 998;
+}
+.product_menu view:last-of-type{
+  border-bottom: none;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.product_menu view:first-of-type{
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.product_menu_item{
+  width: 100%;
+  height: 65rpx;
+  border-bottom: 1px solid #dddddd;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: #454545;
+  z-index: 998;
+}
+.product_menu::before{
+  position: absolute;
+  bottom: -6px;
+  content: '';
+  left: 60rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-style:solid;
+  border-width:1px;
+  border-color: #dddddd ;
+  border-radius:10rpx;
+  background: white;
+  transform:rotate(45deg);
+  z-index: -1;
+}
+
+
+/*右侧产品展示*/
+.product_list_right{
+	width: 100%;
+  height: auto;
+  margin:auto;
+	float: left;
+}
+#product_list_right_body{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+  overflow-y:auto;
+  overflow-x: hidden;
+  column-count: 2;
+  column-gap:30rpx;
+  margin-top: 20rpx;
+}
+/*每个产品div*/
+.li{
+	width: 100%;
+	height: auto;
+  float: left;
+  border:1px solid #f0f0f0;
+  border-radius: 5rpx;
+	margin-bottom:30rpx;
+	position: relative;
+	box-sizing:border-box;
+}
+/*产品图片*/
+.product_list_image{
+	width:100%;
+  margin-bottom:10rpx;
+}
+.product_bottom{
+  display: flex;
+  align-items: center;
+  margin: 20rpx 5%;
+}
+.bottom_item{
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5B5B5B;
+}
+.mini-btn{
+  color: white;
+  background-color: #2782D7;
+}
+.bottom_item image{
+  width: 32%;
+  height: 45rpx;
+}
+.product_right{
+	width: 90%;
+  margin-left: 5%;
+  margin-top:20rpx;
+  margin-bottom: 10rpx;
+}
+.product_right p:first-of-type{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.more{
+  cursor: pointer;
+  color: #2782D7;
+}
+.product_info_div{
+	margin-top:10rpx;
+	font-size: 25rpx;
+	color: #454545;
+	text-indent: 1vw;
+	line-height: 40rpx;
+}
+.product_num{
+	color: red;
+	font-size: 26rpx;
+	text-align:right;
+  margin-top:10rpx;
+}

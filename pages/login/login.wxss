@@ -1,0 +1,34 @@
+.loginBox{
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 10rpx;
+  padding: 50rpx 0;
+}
+.button-wrap{
+  width: 150rpx !important;
+}
+page{
+  height: 100vh;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("http://qiufengfu363.oss-cn-hangzhou.aliyuncs.com/2021/04/04/1e94111c-d17e-4649-99cd-e6177f3f9258g36NtjwtNMS0b9c5ff9dacdf69137aab8ffc9ebc59b3.png");
+}
+
+.login-wrap{
+  color: gray;
+  font-size: 27rpx;
+  justify-content: flex-end;
+}
+.login-wrap text{
+  color: #2782D7;
+  cursor: pointer;
+}

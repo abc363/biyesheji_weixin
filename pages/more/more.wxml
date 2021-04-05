@@ -1,0 +1,24 @@
+<scroll-view scroll-y="true" style="height: {{height+'px'}};" scroll-into-view="{{ detail }}" scroll-with-animation="true"  >
+  <view class="title-wrap">{{news_title}}</view>
+  <view class="date-wrap">{{news_date}}</view>
+  <rich-text nodes="{{moreData}}" class="rich-text"></rich-text>
+  <view class="comment-wrap">
+    <view id="comment" class="comment-text">评论</view>
+    <view class="send-wrap">
+      <input bindinput="getInputComment" placeholder="快来发表你的看法吧" value="{{commentValue}}"/>
+      <button bindtap="addComment" class="addcomment-wrap">发表评论</button>
+    </view>
+    <view wx:for="{{usernameList}}" wx:for-index="index" wx:key="key">
+      <view class="comment-li">
+        <image src="{{item.avatar}}"></image>
+        <view class="comment-li-text">
+          <view class="comment-first">
+            <view>{{item.name}}<text>（{{item.date}}）</text></view>
+            <view bindtap="deleteComment" wx:if="{{item.uaid == userId}}" data-num="{{item}}"><text>删除</text></view>
+          </view>
+          <view class="comment-second">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>

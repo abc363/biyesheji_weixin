@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/login/login",
+    "pages/index/index",
+    "pages/personal/personal",
+    "pages/editor/editor",
+    "pages/more/more",
+    "pages/reg/reg"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "VKnow新闻",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#2980B9",
+    "backgroundColorTop": "#2980B9",
+    "backgroundColorBottom": "#2980B9"
+  },
+  "tabBar": {
+    "selectedColor": "#2980B9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/imgs/tabone.png",
+        "selectedIconPath": "assets/imgs/tabone_select.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "assets/imgs/tabfour.png",
+        "selectedIconPath": "assets/imgs/tabfour_select.png"
+      }
+
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

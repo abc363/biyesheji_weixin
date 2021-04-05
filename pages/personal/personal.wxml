@@ -1,0 +1,65 @@
+<view  class="personal-wrap">
+  <view class="header-wrap">
+    <image src="{{avatar}}" class="avatar-wrap"></image>
+    <view class="name-wrap">{{username}}</view>
+  </view>
+  <view class="head-wrap">
+    <view class="header-text-wrap">
+      <text>2</text>
+      <text>新闻</text>
+    </view>
+    <view class="header-text-wrap">
+      <text>2</text>
+      <text>获赞</text>
+    </view>
+    <view class="header-text-wrap">
+      <text>2</text>
+      <text>粉丝</text>
+    </view>
+    <view class="header-text-wrap">
+      <text>2</text>
+      <text>关注</text>
+    </view>
+  </view>
+  <view class="setting-wrap">
+    <view class="header-text-wrap color">
+     <image src="/assets/imgs/message.png"/>
+      <text>消息通知</text>
+    </view>
+    <view class="header-text-wrap color">
+     <image src="/assets/imgs/send.png"/>
+      <text>我的发布</text>
+    </view>
+    <view class="header-text-wrap color">
+     <image src="/assets/imgs/save.png"/>
+      <text>收藏</text>
+    </view>
+    <view class="header-text-wrap color">
+     <image src="/assets/imgs/history.png"/>
+      <text>浏览历史</text>
+    </view>
+  </view>
+  <view class="create-news-wrap">
+    <text class="create-wrap">创作中心</text>
+    <view class="setting-wrap">
+    <view class="header-text-wrap color"  bindtap="addNews">
+     <image src="/assets/imgs/add.png"/>
+      <text>发布新闻</text>
+    </view>
+    <view class="header-text-wrap color"  bindtap="toCard">
+     <image src="/assets/imgs/create.png"/>
+      <text>我的创作</text>
+    </view>
+    <view class="header-text-wrap color" bindtap="awards">
+     <image src="/assets/imgs/activity.png"/>
+      <text>活动奖励</text>
+    </view>
+  </view>
+  </view>
+</view>
+<text>\n</text>
+
+
+
+
+

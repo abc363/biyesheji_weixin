@@ -1,0 +1,88 @@
+@import "../common/lib/weui.wxss";
+@import "./assets/iconfont.wxss";
+.edit-form{
+  margin: 15rpx;
+  display: block;
+}
+.container {
+  width: 95%;
+  margin: auto;
+}
+.section__title{
+  color: gray;
+  font-size: 28rpx;
+}
+.image-wrap{
+  border: 1px solid #f0f0f0;
+  border-radius: 5rpx;
+}
+.edit-btn{
+  width: 100% !important;
+  color: white;
+  background-color: #2782D7;
+
+}
+.edit-input{
+  border: 1px solid #e0e0e0;
+  border-radius: 5rpx;
+  margin: 10rpx;
+  padding: 10rpx;
+}
+.ql-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: auto;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #ECECEC;
+}
+.textarea-wrap{
+  border: 1px solid #e0e0e0;
+  border-radius: 5rpx;
+  padding: 10rpx;
+  width: 94%;
+  margin: 10rpx;
+}
+.ql-active {
+  color: #2782D7;
+}
+
+.iconfont {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.send-btn{
+  position: absolute;
+  bottom: 100rpx;
+  right: 40rpx;
+  width: 150rpx !important;
+  height: 150rpx;
+  color: white;
+  background-color: #2782D7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.toolbar {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ECECEC;
+  border-left: none;
+  border-right: none;
+}
+

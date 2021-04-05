@@ -1,0 +1,25 @@
+.card-wrap{
+  border: 1px solid #e0e0e0;
+  border-radius: 5rpx;
+  margin: 15rpx;
+  padding: 15rpx;
+}
+.card-text{
+  cursor: pointer;
+  color:#2782D7;
+}
+.card-wrap image{
+  width: -webkit-fill-available;
+  margin-bottom: 10rpx;
+}
+.card-wrap button{
+  background-color: #2782D7;
+  color: white;
+}
+.card-intro{
+  color: #9d9d9d;
+  font-size: 26rpx;
+}
+.text-wrap{
+  color: #9d9d9d;
+}

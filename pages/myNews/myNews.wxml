@@ -1,0 +1,9 @@
+<view >
+  <view wx:for="{{data}}" class="card-wrap">
+    <image src="{{item.news_image}}"/>
+    <h3>{{item.news_title}}</h3>
+    <view class="card-intro">{{item.news_intro}}<span class="card-text" bindtap="toMore"
+      data-num="{{item.nid}}">更多>></span></view>
+    <button bindtap="joinActivity" wx:if="{{isHide}}" data-num="{{item}}">选择该新闻</button>
+  </view>
+</view>

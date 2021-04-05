@@ -1,0 +1,98 @@
+.header {
+  margin: 90rpx 0 90rpx 50rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+ } 
+ .header image {
+  width: 200rpx;
+  height: 200rpx;
+ }
+ .content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+ }
+ .content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+ }
+ .bottom {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 35rpx;
+ }
+ .personal-wrap{
+   padding: 0 20rpx;
+   background-color: #f3f2f2;
+   height: 1200rpx;
+ }
+ .header-wrap{
+   padding-top: 20rpx;
+   display: flex;
+   align-items: center;
+   margin-top: 15rpx;
+ }
+.avatar-wrap{
+  width: 150rpx;
+  height:150rpx;
+  border-radius:50%;
+  display: flex;
+  margin-left: 30rpx;
+  overflow:hidden;
+  text-align: center;
+  margin-right:40rpx;
+  float: left;
+}
+.name-wrap{
+  float: left;
+  font-weight: 600;
+  font-size: 35rpx;
+}
+.head-wrap{
+  display: flex;
+}
+.header-text-wrap{
+  width: 25%;
+  height: 100rpx;
+text-align: center;  
+padding:20rpx 0;
+cursor: pointer;
+}
+.header-text-wrap text{
+ width: 100%; 
+ display: block;
+ font-size: 26rpx;
+ margin: 8rpx 0;
+}
+.header-text-wrap image{
+  width: 50%; 
+  height: 70%; 
+  display: block;
+  margin: auto;
+  font-size: 30rpx;
+ }
+ .color{
+   margin: 0;
+   background-color: white;
+ }
+ .setting-wrap{
+   border-radius: 20rpx;
+   display: flex;
+   color: #454545;
+   box-shadow: 5rpx 5rpx 5rpx rgb(201, 200, 200);
+ }
+ .create-news-wrap{
+   margin-top: 30rpx;
+   background-color: white;
+   box-shadow: 5rpx 5rpx 5rpx rgb(201, 200, 200);
+   color: #454545;
+ }
+ .create-wrap{
+   margin-top: 30rpx;
+   margin-left: 30rpx;
+   font-size: 38rpx;
+   display: inline-block;
+ }
