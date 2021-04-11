@@ -35,9 +35,9 @@ Page({
         // that.setData({ moreData: res.data.data.news_content})
       }
     })
-    // 点赞后添加用户行为
+    // 浏览后添加用户行为
     wx.request({
-      url: `${app.globalData._server}/usersActivity/add`, //仅为示例，并非真实的接口地址
+      url: `${app.globalData._server}/UsersActivity/add`, //仅为示例，并非真实的接口地址
       data:{
         uaid:app.globalData.userId,
         news_id:that.data.id,
@@ -104,7 +104,7 @@ Page({
     })
       // 点赞后添加用户行为
       wx.request({
-      url: `${app.globalData._server}/usersActivity/add`, //仅为示例，并非真实的接口地址
+      url: `${app.globalData._server}/UsersActivity/add`, //仅为示例，并非真实的接口地址
       data:{
         uaid:app.globalData.userId,
         news_id:that.data.id,

@@ -49,14 +49,14 @@
           </view>
           <!-- 分享 -->
           <view class="bottom_item">
-            <button>
               <image src="/assets/imgs/comment.png" bindtap="addComment" data-num="{{item.nid}}"></image>
               <view>{{arrComment[index]}}</view>
-            </button>
           </view>
           <view class="bottom_item">
-            <image src="/assets/imgs/share.png"></image>
-            <view>{{item.news_share}}</view>
+            <button class="button-row" id="shareBtn" open-type="share" type="primary" data-num="{{item}}">
+              <image src="/assets/imgs/share.png"></image>
+            <view>{{sharePraise[index]}}</view>
+            </button>
           </view>
         </view>
       </li>

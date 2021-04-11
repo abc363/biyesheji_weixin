@@ -11,6 +11,7 @@ Page({
     type_re:[],
     searchValue:'',
     arrPraise:[],
+    sharePraise:[],
     personalPraise:[],
     arrComment:[],
     type:[],
@@ -32,7 +33,7 @@ Page({
     // tODO 拿微信名去请求id，后台拿到id后做推荐算法
     wx.showLoading({
       title: '加载中，请稍候',
-      duration: 500
+      duration: 1500
     })
     wx.request({
       url: app.globalData._server+'/news/show', //仅为示例，并非真实的接口地址
@@ -45,6 +46,7 @@ Page({
        let arr1 = []
       let arr2 = []
       let arr3 = [];
+      let arr6= [];
       let result = [];
       let resultInterest =[];
        res.data.data.tableData.forEach((e,index)=>{
@@ -52,6 +54,7 @@ Page({
            arr.push(e);
            arr1.push(e.news_praise)
            arr2.push(e.news_comment)
+           arr6.push(e.news_share)
          }
          const arr4 = JSON.parse(JSON.stringify(e.news_praiseArr)) || [];
          if(arr4.indexOf(app.globalData.userId)!==-1){
@@ -74,18 +77,28 @@ Page({
               result[index][i] +=1;
             }
           })
-          // 计算用户兴趣度
-          if(app.globalData.userId == el.uaid){
-            resultInterest[index][i] = el.news_praise*3+el.news_comment*4+el.news_view*1+el.news_share*2;
-          }else{
-            resultInterest[index][i] =0;
-          }
         })
-
        })
+       wx.request({
+        url: `${app.globalData._server}/UsersActivity/${app.globalData.userId}/showUsersActivity`, //仅为示例，并非真实的接口地址
+        success (e) {
+          console.log(e)
+          //  // 计算用户兴趣度(用户行为表)
+          //  if(app.globalData.userId == el.uaid){
+          //   console.log(el);
+          //   resultInterest[index][i] = el.news_praise*3+el.news_comment*4+el.news_view*1+el.news_share*2;
+          //   console.log(resultInterest[index][i])
+          // }else{
+          //   resultInterest[index][i] =0;
+          // }
+        }
+      })
+      //  console.log(resultInterest);
+      //     console.log(result);
        that.setData({
          news: arr,
          arrPraise:arr1,
+         sharePraise:arr6,
         arrComment:arr2,
         personalPraise:arr3,
        })
@@ -146,7 +159,7 @@ Page({
     })
     // 点赞后添加用户行为
     wx.request({
-      url: `${app.globalData._server}/usersActivity/add`, //仅为示例，并非真实的接口地址
+      url: `${app.globalData._server}/UsersActivity/add`, //仅为示例，并非真实的接口地址
       data:{
         uaid:app.globalData.userId,
         news_id:el.nid,
@@ -181,5 +194,40 @@ Page({
           //跳转页面的路径，可带参数 ，用?隔开，不同参数用&分隔；
           url:`../more/more?id=${event.target.dataset.num}&detail=comment`
         })
-      }
+      },
+      onShareAppMessage: function (event) {
+        var that = this;
+        wx.showToast({
+          title: '分享成功',
+          icon: 'success',
+          mask: true,
+          duration: 1000
+        })
+        wx.request({
+          url: `${app.globalData._server}/UsersActivity/add`, //仅为示例，并非真实的接口地址
+          data:{
+            uaid:app.globalData.userId,
+            news_id:event.target.dataset.num.nid,
+            add_tag:'share'
+          },
+          method:'post',
+          success (res) {
+          }
+        })
+        event.target.dataset.num.news_share +=1;
+        wx.request({
+          url: `${app.globalData._server}/news/${event.target.dataset.num.nid}/change_info`, //仅为示例，并非真实的接口地址
+          data:event.target.dataset.num,
+          method:'post',
+          success (res) {
+            that.setData({
+              [`sharePraise[${index}]`]:that.data.sharePraise[index]+1,
+            })
+          }
+        })
+        return {
+          title: `${event.target.dataset.num.news_title}`,
+          path: `/pages/more/more?id=${event.target.dataset.num.nid}`,
+        }
+      },
 })

@@ -154,7 +154,11 @@
   transform:rotate(45deg);
   z-index: -1;
 }
-
+.button-row{
+  background-color: #fff;
+  color: #5b5b5b !important;
+  display: contents;
+}
 
 /*右侧产品展示*/
 .product_list_right{
