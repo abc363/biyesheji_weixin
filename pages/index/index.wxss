@@ -31,7 +31,7 @@
 }
 .swiper-container .dots{
   position: absolute;
-  bottom: 60rpx;
+  bottom: 100rpx;
   display: flex;
   right: 40%;
   justify-content: center;
@@ -85,6 +85,10 @@
   padding: 6rpx;
   width: 100%;
   bottom: 0px;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
 }
 .actionBar{
   width: 110rpx;

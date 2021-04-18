@@ -40,8 +40,12 @@ Page({
       url: `${app.globalData._server}/UsersActivity/add`, //仅为示例，并非真实的接口地址
       data:{
         uaid:app.globalData.userId,
-        news_id:that.data.id,
-        add_tag:'view'
+        news_id:parseInt(that.data.id),
+        add_tag:'tag_view',
+        tag_view:1,
+        tag_praise:0,
+        tag_comment:0,
+        tag_share:0,
       },
       method:'post',
       success (res) {
@@ -108,7 +112,11 @@ Page({
       data:{
         uaid:app.globalData.userId,
         news_id:that.data.id,
-        add_tag:'comment'
+        add_tag:'tag_comment',
+        tag_comment:1,
+        tag_view:0,
+        tag_praise:0,
+        tag_share:0,
       },
       method:'post',
       success (res) {

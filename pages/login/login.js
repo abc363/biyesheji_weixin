@@ -18,7 +18,7 @@ Page({
   loginUser(){
     var that = this;
     wx.request({
-      url: app.globalData._server+'/userApplication/login', //仅为示例，并非真实的接口地址
+      url: app.globalData._server+'/userApplication/login', 
       data:{
         username:that.data.username,
         password:md5.hex_md5(that.data.password)
@@ -37,14 +37,11 @@ Page({
         })
         setTimeout(function(){
           wx.switchTab({
-            //跳转页面的路径，可带参数 ，用?隔开，不同参数用&分隔；
             url:`../index/index`
           })
         },1200)
-        
       }
     })
-   
   },
   usernameChange(e){
     this.setData({

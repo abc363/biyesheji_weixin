@@ -72,11 +72,9 @@ regUser(){
         })
         setTimeout(function(){
           wx.navigateTo({
-            //跳转页面的路径，可带参数 ，用?隔开，不同参数用&分隔；
             url:`../login/login`
           })
         },1000)
-      
       }
     })
   }else{
@@ -87,7 +85,6 @@ regUser(){
       duration: 1000
     })
   }
- 
 },
 usernameChange(e){
   this.setData({

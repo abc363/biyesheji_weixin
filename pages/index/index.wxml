@@ -15,17 +15,17 @@
 <view class="recommend" >
   <view class="swiper-container">
     <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
-      <block wx:for="{{slider}}" wx:key="unique">
+      <block wx:for="{{sliderHeader}}" wx:key="unique">
         <swiper-item >
-          <image src="{{item}}" class="img"></image>
+          <image src="{{item.news_image}}" class="img"></image>
         </swiper-item>
       </block>
     </swiper>
     <view class="slider-title">
-        <view>43242</view>
+        <view>{{nowNews_title}}</view>
     </view>
     <view class="dots">
-      <block wx:for="{{slider}}" wx:key="unique">
+      <block wx:for="{{sliderHeader}}" wx:key="unique">
         <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}"></view>
       </block>
     </view>
@@ -49,7 +49,7 @@
           </view>
           <!-- 分享 -->
           <view class="bottom_item">
-              <image src="/assets/imgs/comment.png" bindtap="addComment" data-num="{{item.nid}}"></image>
+              <image src="/assets/imgs/comment.png" bindtap="addComment" data-num="{{item.nid}}" data-index="{{index}}"></image>
               <view>{{arrComment[index]}}</view>
           </view>
           <view class="bottom_item">

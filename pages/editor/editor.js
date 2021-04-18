@@ -15,6 +15,7 @@ Page({
     news_keywords:'',
     date:'',
     form:{},
+    sensitiveWords:['update','select','alter','drop','insert','union','delete'],
   },
   readOnlyChange() {
     this.setData({
@@ -121,13 +122,26 @@ Page({
         })
   },
   sendMessage(){
-    var {form} = this.data;
+    var {form,sensitiveWords} = this.data;
+    for(let i in sensitiveWords){
+      // 包含某个敏感词汇
+      for(let index in form){
+        if(JSON.stringify(form[index]).indexOf(sensitiveWords[i])!==-1){
+          wx.showToast({
+            title: '你所填写中包含SQL注入敏感词汇，请重新填写',
+            icon: 'error',
+            mask: true,
+            duration:500
+          })
+          return
+        }
+      }
+    }
     wx.request({
       url: app.globalData._server+'/news/add', 
       data:form,
       method:'post',
       success (res) {
-       
         wx.showToast({
           title: '添加成功',
           icon: 'success',
