@@ -127,13 +127,13 @@ Page({
       // 包含某个敏感词汇
       for(let index in form){
         if(JSON.stringify(form[index]).indexOf(sensitiveWords[i])!==-1){
-          wx.showToast({
-            title: '你所填写中包含SQL注入敏感词汇，请重新填写',
+          return wx.showToast({
+            title: '包含SQL敏感词汇',
             icon: 'error',
             mask: true,
             duration:500
           })
-          return
+          
         }
       }
     }

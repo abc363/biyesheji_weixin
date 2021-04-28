@@ -14,7 +14,8 @@ Page({
    commentValue:'',
    userId:'',
    news_comment:0,
-   data:{},
+   data:{}, 
+   news_view:0,
   },
   
   onLoad: function(options) {
@@ -30,7 +31,8 @@ Page({
           news_title: res.data.data.news_title,
           news_date:res.data.data.news_date,
           data:res.data.data,
-          news_comment:res.data.data.news_comment
+          news_comment:res.data.data.news_comment,
+          news_view:res.data.data.news_view,
       })
         // that.setData({ moreData: res.data.data.news_content})
       }
@@ -47,6 +49,12 @@ Page({
         tag_comment:0,
         tag_share:0,
       },
+      method:'post',
+      success (res) {
+      }
+    })
+    wx.request({
+      url: `${app.globalData._server}/news/${this.data.id}/${that.data.news_view+1}/change_view`, //仅为示例，并非真实的接口地址
       method:'post',
       success (res) {
       }
@@ -95,6 +103,12 @@ Page({
       method:'post',
       success (res) {
         that.getList();
+        app.globalData.commentList.forEach(e=>{
+          if(e.id == that.data.id){
+            e.comment +=1;
+          }
+        })
+        console.log(app.globalData.commentList);
         that.setData({ commentValue: ''})
       }
     })
@@ -106,7 +120,7 @@ Page({
         that.setData({ news_comment: that.data.news_comment+1})
       }
     })
-      // 点赞后添加用户行为
+      // 评论后添加用户行为
       wx.request({
       url: `${app.globalData._server}/UsersActivity/add`, //仅为示例，并非真实的接口地址
       data:{

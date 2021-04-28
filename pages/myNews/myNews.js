@@ -9,7 +9,7 @@ Page({
   },
  onLoad(options){
    var that = this;
-   this.setData({ isHide: decodeURIComponent(options.isActivity)})
+   this.setData({ isHide: decodeURIComponent(options.isActivity)!=='undefined'?true:false})
   this.setData({ id: decodeURIComponent(options.id)})
 
   //  TODO 根据uaid去获取自己的新闻列表
@@ -23,7 +23,8 @@ Page({
       const arr = res.data.data;
       let arr1=[];
       arr.forEach(e=>{
-        if(e.news_isPass == 1){
+        // 除了未审核，拒绝和已通过的都展示
+        if(e.news_isPass !==0 ){
           arr1.push(e)
         }
       })

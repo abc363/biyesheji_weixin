@@ -17,7 +17,7 @@
     <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
       <block wx:for="{{sliderHeader}}" wx:key="unique">
         <swiper-item >
-          <image src="{{item.news_image}}" class="img"></image>
+          <image src="{{item.news_image}}" class="img"  bindtap="toMore"  data-num="{{item.nid}}"></image>
         </swiper-item>
       </block>
     </swiper>

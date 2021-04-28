@@ -24,9 +24,17 @@ Page({
   //   this.onLoad()
   // },
   // 开始加载
+  onShow(){
+    let copy = [];
+    this.data.arrComment.forEach(((e,index)=>{
+      copy.push(app.globalData.commentList[index].comment)
+    }))
+    this.setData({
+      arrComment:copy
+    })
+  },
   onLoad:function(){
     this.getNewsList();
-   
   },
   getNewsList(){
     var that = this;
@@ -56,11 +64,13 @@ Page({
           let hotResult = [];
           let slider = [];
           let header = [];
+          app.globalData.commentList = [];
             res.data.data.forEach((e,index)=>{
                arr.push(e)
                 arr1.push(e.news_praise)
                 arr2.push(e.news_comment)
                 arr6.push(e.news_share)
+                app.globalData.commentList.push({id:e.nid,comment:e.news_comment})
                 hotResult[index] = {id:e.nid,value:e.news_comment*3+e.news_praise*2+e.news_share*4+e.news_view};
                 result[index] = new Array();
                 result[index]= that.diversion(e,index,res.data.data);
@@ -82,23 +92,26 @@ Page({
             })
             let flag =0;
              // 热点
+             let copyResult = JSON.parse(JSON.stringify(hotResult));
             slider = that.quickSort(hotResult).slice(hotResult.length-3,hotResult.length);
             let sliderId = [slider[0].id,slider[1].id,slider[2].id]
             resultInterest.forEach((e,index)=>{
-              if(e==0 && newsResult[index]>20 && sliderId.indexOf(hotResult[index].id)==-1){
+              // 没看过的放进去
+              if(e==0 && sliderId.indexOf(copyResult[index].id)==-1){
                 dataResult.push(res.data.data[index])
               }
               if(e==0){
                 flag+=1
               }
-              if(sliderId.indexOf(hotResult[index].id)!==-1){
+              if(sliderId.indexOf(copyResult[index].id)!==-1){
                 header.push(res.data.data[index])
               }
             })
+            // 除了三条热点，其他都放进去
             if(flag === newsResult.length){
               dataResult = []
               res.data.data.forEach((e,index)=>{
-                if(sliderId.indexOf(hotResult[index].id)==-1){
+                if(sliderId.indexOf(copyResult[index].id)==-1){
                   dataResult.push(e)
                 }
               })
@@ -170,6 +183,7 @@ Page({
           }
         }
       }
+      console.log(obj);
       return obj
   },
   // 悬浮按钮点击事件
@@ -292,6 +306,7 @@ Page({
           }
         })
         event.target.dataset.num.news_share +=1;
+        console.log(event.target.dataset)
         wx.request({
           url: `${app.globalData._server}/news/${event.target.dataset.num.nid}/change_info`, //仅为示例，并非真实的接口地址
           data:event.target.dataset.num,

@@ -8,6 +8,7 @@ App({
     _server: 'http://120.55.95.122:8080',
     userId:'',
     username:'',
-    avatar:''
+    avatar:'',
+    commentList:[]
   }
 })

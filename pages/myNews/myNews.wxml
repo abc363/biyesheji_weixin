@@ -5,5 +5,6 @@
     <view class="card-intro">{{item.news_intro}}<span class="card-text" bindtap="toMore"
       data-num="{{item.nid}}">更多>></span></view>
     <button bindtap="joinActivity" wx:if="{{isHide}}" data-num="{{item}}">选择该新闻</button>
+    <button wx:if="{{item.isPass == -1}}" type="warn" disabled="true">审核失败</button>
   </view>
 </view>
